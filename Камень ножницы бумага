@@ -1,0 +1,51 @@
+
+import random
+
+def exit_app():
+    exit = input('y or n = ')
+    if exit == 'y':
+        return True
+    elif exit == 'n':
+        return False
+    else:
+        return exit_app()
+
+def app():
+    pc = 0
+    user = 0
+    for i in range(99):
+        print('Round',i+1)
+        a=input('input: r(rock) p(paper) s(scissors)')
+        b=random.choice('rps')
+        print(a)
+        print(b)
+        if a==b:
+            print('Draw')
+        if a=='r' and b=='s':
+            print('U win!')
+            user=user+1
+        if a=='r' and b=='p':
+            print('U lose')
+            pc=pc+1
+        if a=='s' and b=='p':
+            print('U win!')
+            user=user+1
+        if a=='s' and b=='r':
+            print('U lose!')
+            pc=pc+1
+        if a=='p' and b=='r':
+            print('U win')
+            user=user+1
+        if a=='p' and b=='s':
+            print('U lose')
+            pc=pc+1
+        if user>pc:
+            print(f'U win! U win {user} ruands!')
+        else:
+            print(f'U lose. U win {user} ruands.')
+    exit = exit_app()
+    if exit == True:
+        return app()
+
+if __name__ == '__main__':
+    app()
